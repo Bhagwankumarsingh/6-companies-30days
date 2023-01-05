@@ -35,15 +35,29 @@ int main()
 //Function to reverse the queue.
 queue<int> rev(queue<int> q)
 {
-    vector<int>arr;
-    while(!q.empty()){
-        int x=q.front();
-        q.pop();
-        arr.push_back(x);
-    }
-    queue<int>ansq;
-    for(int i=arr.size()-1;i>=0;i--){
-        ansq.push(arr[i]);
-    }
-    return ansq;
+    // vector<int>arr;
+    // while(!q.empty()){
+    //     int x=q.front();
+    //     q.pop();
+    //     arr.push_back(x);
+    // }
+    // queue<int>ansq;
+    // for(int i=arr.size()-1;i>=0;i--){
+    //     ansq.push(arr[i]);
+    // }
+    // return ansq;
+    
+    // using stack 
+     stack<int>s;
+     while(!q.empty()){
+         int x=q.front();
+         s.push(x);
+         q.pop();
+     }
+     queue<int>ansq;
+     while(!s.empty()){
+         ansq.push(s.top());
+         s.pop();
+     }
+     return ansq;
 }
